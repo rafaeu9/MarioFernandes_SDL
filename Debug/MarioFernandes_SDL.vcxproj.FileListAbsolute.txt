@@ -1,0 +1,2 @@
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Debug\MarioFernandes_SDL.exe
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Debug\MarioFernandes_SDL.pdb
