@@ -17,7 +17,7 @@ ControllerManager::ControllerManager()
 				// Open joystick
 				Controller* tempJoy = new Controller(SDL_JoystickOpen(i), i);
 
-
+				//Information of the controllers
 				if (tempJoy->joy) {
 					printf("Opened Joystick %d\n", i);
 					printf("Name: %s\n", SDL_JoystickNameForIndex(i));
@@ -30,9 +30,7 @@ ControllerManager::ControllerManager()
 				else {
 					printf("Couldn't open Joystick %d\n", i);
 				}
-
 			}
-
 		}
 	}
 }
@@ -46,12 +44,6 @@ ControllerManager::~ControllerManager()
 			SDL_JoystickClose(controllers[i]->joy);
 		}
 	}
-
-}
-
-void ControllerManager::init()
-{
-	
 }
 
 void ControllerManager::Update()

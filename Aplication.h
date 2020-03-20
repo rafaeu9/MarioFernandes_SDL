@@ -1,3 +1,7 @@
+/* Change Log
+19/03/2020 - Structure of the class, window and FPS
+*/
+
 #pragma once
 #include <iostream>
 #include <conio.h>
@@ -16,7 +20,18 @@ public:
 
 	Aplication();
 
+	
+	/* 
+	Initialize aplication
+	- Title of the Window
+	- Position X on screen
+	- Position Y on screen
+	- With of the window
+	- Height of the window
+	- Fullscreen
+	*/
 	void Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+
 
 	static SDL_Renderer* renderer;
 	/*static Controller* controller;*/
@@ -28,8 +43,10 @@ private:
 	ControllerManager* controllerManager;
 	/*Map* map;	*/
 
+	// State of the app
 	bool isRunning = false;
 
+	//Run aplication
 	void Running();
 
 	void Update();

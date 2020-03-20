@@ -1,3 +1,7 @@
+/* Change Log
+20/03/2020 - Detect event and give it to the right controller
+*/
+
 #pragma once
 #include <stdio.h>
 #include <vector>
@@ -10,10 +14,12 @@ class ControllerManager
 {
 private:
 
+	//Events
 	SDL_Event* ev = new SDL_Event();
 
 	SDL_Joystick* joy;
 
+	//Total number of controllers 
 	int joyTotal;
 
 public:
@@ -21,9 +27,9 @@ public:
 	ControllerManager();
 	~ControllerManager();
 
-	void init();
 	void Update();
 
+	//List of controllers
 	std::vector<Controller*> controllers;
 
 };
