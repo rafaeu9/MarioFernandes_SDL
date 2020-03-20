@@ -10,7 +10,6 @@ enum Input
 
 class Controller
 {
-	Input input = Input::INVALID;
 
 	SDL_GameController* gamecontroller;
 	SDL_GameControllerButton button;
@@ -19,9 +18,13 @@ class Controller
 public:
 
 	Controller(SDL_Joystick* tempjoy, int inpID);
-	SDL_Joystick* joy;
-	int ID;
+
 	bool GetButton(Input Key);
+
+
+	SDL_Joystick* joy;
+
+	int ID;
 
 	bool m_ButtonPressed[INVALID];
 	

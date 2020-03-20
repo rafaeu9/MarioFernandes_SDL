@@ -145,6 +145,7 @@ void Aplication::Running()
 
 void Aplication::Update()
 {	
+
 	controllerManager->Update();
 
 

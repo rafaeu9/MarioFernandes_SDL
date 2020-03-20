@@ -15,17 +15,17 @@ ControllerManager::ControllerManager()
 			{
 
 				// Open joystick
-				Controller tempJoy(SDL_JoystickOpen(i), i);
+				Controller* tempJoy = new Controller(SDL_JoystickOpen(i), i);
 
 
-				if (tempJoy.joy) {
+				if (tempJoy->joy) {
 					printf("Opened Joystick %d\n", i);
 					printf("Name: %s\n", SDL_JoystickNameForIndex(i));
-					printf("Number of Axes: %d\n", SDL_JoystickNumAxes(tempJoy.joy));
-					printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(tempJoy.joy));
-					printf("Number of Balls: %d\n", SDL_JoystickNumBalls(tempJoy.joy));
+					printf("Number of Axes: %d\n", SDL_JoystickNumAxes(tempJoy->joy));
+					printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(tempJoy->joy));
+					printf("Number of Balls: %d\n", SDL_JoystickNumBalls(tempJoy->joy));
 
-					controllers.push_back(&tempJoy);
+					controllers.push_back(tempJoy);
 				}
 				else {
 					printf("Couldn't open Joystick %d\n", i);
@@ -89,7 +89,6 @@ void ControllerManager::Update()
 				break;
 			case SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_LEFT:
 				controllers[ID]->m_ButtonPressed[LEFT_ARROW] = true;
-				std::cout << "downleft" << std::endl;
 				break;
 			default:
 				break;
@@ -125,7 +124,6 @@ void ControllerManager::Update()
 				break;
 			case SDL_GameControllerButton::SDL_CONTROLLER_BUTTON_DPAD_LEFT:
 				controllers[ID]->m_ButtonPressed[LEFT_ARROW] = false;
-				std::cout << "upleft" << std::endl;
 				break;
 			default:
 				break;
