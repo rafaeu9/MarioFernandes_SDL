@@ -6,7 +6,7 @@
 
 #include "SDL.h"
 ////#include "Map.h"
-#include "Controller.h"
+#include "ControllerManager.h"
 
 using namespace std;
 
@@ -25,12 +25,7 @@ private:
 
 	SDL_Window* window;
 
-	SDL_Joystick* joy;
-
-	vector<Controller*> controllers;
-
-	int joyTotal;
-
+	ControllerManager* controllerManager;
 	/*Map* map;	*/
 
 	bool isRunning = false;

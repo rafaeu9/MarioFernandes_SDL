@@ -75,51 +75,7 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 	}
 #pragma endregion Create Window
 
-#pragma region Controller	
-
-	// Initialize the joystick subsystem
-	if (SDL_InitSubSystem(SDL_INIT_JOYSTICK) == 0)
-	{
-
-		joyTotal = SDL_NumJoysticks();
-
-		// Check for joystick
-		if (joyTotal > 0) {
-
-			for (int i = 0; i < joyTotal; i++)
-			{
-				// Open joystick
-				Controller tempJoy(SDL_JoystickOpen(i), i);			
-
-				if (tempJoy.joy) {
-					printf("Opened Joystick %d\n", i);
-					printf("Name: %s\n", SDL_JoystickNameForIndex(i));
-					printf("Number of Axes: %d\n", SDL_JoystickNumAxes(tempJoy.joy));
-					printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(tempJoy.joy));
-					printf("Number of Balls: %d\n", SDL_JoystickNumBalls(tempJoy.joy));
-
-					controllers.push_back(&tempJoy);
-
-				}
-				else {
-					printf("Couldn't open Joystick %d\n", i);
-				}
-				// Close if opened
-				if (SDL_JoystickGetAttached(joy)) {
-					SDL_JoystickClose(joy);
-				}
-			}
-
-		}
-
-		isRunning = true;
-	}
-	else
-	{
-		isRunning = false;
-	}
-
-#pragma endregion Controller
+	controllerManager = new ControllerManager();
 
 	/*controller = new Controller();*/
 
@@ -180,25 +136,37 @@ void Aplication::Running()
 
 			FrameCount = 0;
 		}
+
+		
 	}
 
-	
+	End();
 }
 
 void Aplication::Update()
 {	
+	controllerManager->Update();
 
-	if (controllers[0]->GetButton() == Input::LEFT_ARROW)
-		printf("Left Arrow");
-	else if (controllers[0]->GetButton() == Input::X)
+
+	if (controllerManager->controllers[0]->GetButton(Input::X))
 		isRunning = false;
 
 }
 
 void Aplication::Draw()
 {
+
+	//Draw on screen
+	SDL_RenderPresent(renderer);
+
+	//Clean window
+	SDL_RenderClear(renderer);
 }
 
 void Aplication::End()
 {
+	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
+	SDL_Quit();
+	printf("GameClean\n");
 }

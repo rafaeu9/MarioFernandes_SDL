@@ -152,11 +152,13 @@
   <ItemGroup>
     <ClCompile Include="Aplication.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="ControllerManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aplication.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="ControllerManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
