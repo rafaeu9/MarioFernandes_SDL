@@ -17,16 +17,16 @@ Collision::Collision(const char* path)
 
 void Collision::init()
 {
-	pos = &entity->getComponent<Coordinate>();
+	pos = &entity->getComponent<Position>();
 
-	Game::collisionManger->Add(entity);
+	Aplication::collisionManger->Add(entity);
 }
 
 void Collision::update()
 {
 	///Update collider pos
-	Rect.x = pos->Get_X();
-	Rect.y = pos->Get_Y();
+	Rect.x = pos->x;
+	Rect.y = pos->y;
 
 	Square();
 

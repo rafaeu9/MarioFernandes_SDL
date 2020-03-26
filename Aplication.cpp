@@ -3,6 +3,8 @@
 SDL_Renderer* Aplication::renderer = nullptr;
 //Controller* Aplication::controller = nullptr;
 
+CollisionManager* Aplication::collisionManger = nullptr;
+
 Aplication::Aplication()
 {
 }
@@ -76,6 +78,7 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 #pragma endregion Create Window
 
 	controllerManager = new ControllerManager();
+	collisionManger = new CollisionManager();
 
 	/*controller = new Controller();*/
 

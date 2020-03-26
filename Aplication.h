@@ -1,6 +1,7 @@
 /* Change Log
 19/03/2020 - Structure of the class, window and FPS
 26/03/2020 - Add Map Class
+26/03/2020 - Start Colision and colision manager
 */
 
 #pragma once
@@ -12,6 +13,7 @@
 #include "SDL.h"
 #include "Map.h"
 #include "ControllerManager.h"
+#include "Components.h"
 
 using namespace std;
 
@@ -37,6 +39,7 @@ public:
 
 
 	static SDL_Renderer* renderer;
+	static CollisionManager* collisionManger;
 	/*static Controller* controller;*/
 	
 

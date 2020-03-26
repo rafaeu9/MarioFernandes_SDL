@@ -1,12 +1,17 @@
+/* Change Log
+26/03/2020 - Start Colision
+*/
 #pragma once
-#include "ECS.h"
+#include "Components.h"
 #include "SDL.h"
+#include "TextureManager.h"
+#include "CollisionManager.h"
 
 class Collision :
 	public Component
 {
 private:
-	/*Coordinate* pos;*/
+	Position* pos;
 
 public:
 

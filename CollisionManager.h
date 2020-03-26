@@ -1,5 +1,7 @@
+/* Change Log
+26/03/2020 - Start colision manager
+*/
 #pragma once
-
 #include "Game.h"
 #include <vector>
 
