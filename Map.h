@@ -1,5 +1,9 @@
+/* Change Log
+26/03/2020 - Load map Texture, Create map Based on Array and draw on screen
+*/
+
 #pragma once
-#include "Game.h" 
+#include "SDL.h"
 #include "TextureManager.h"
 #include <vector>
 
@@ -20,9 +24,11 @@ public:
 	std::vector<SDL_Rect> way;
 
 
-private:
+protected:
 
-	SDL_Rect src, dest, MapLimits;
+	SDL_Rect src;
+	SDL_Rect dest;
+	SDL_Rect MapLimits;
 
 	SDL_Texture* dirt;
 	SDL_Texture* grass;

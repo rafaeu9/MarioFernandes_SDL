@@ -1,3 +1,7 @@
 ﻿  Aplication.cpp
+  Map.cpp
+  TextureManager.cpp
+  main.cpp
+  Generating Code...
   MarioFernandes_SDL.vcxproj -> C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Debug\MarioFernandes_SDL.exe
           1 file(s) copied.

@@ -1,5 +1,6 @@
 /* Change Log
 19/03/2020 - Structure of the class, window and FPS
+26/03/2020 - Add Map Class
 */
 
 #pragma once
@@ -9,10 +10,12 @@
 #include <vector>
 
 #include "SDL.h"
-////#include "Map.h"
+#include "Map.h"
 #include "ControllerManager.h"
 
 using namespace std;
+
+class Map;
 
 class Aplication
 {
@@ -35,13 +38,15 @@ public:
 
 	static SDL_Renderer* renderer;
 	/*static Controller* controller;*/
+	
 
 private:
 
 	SDL_Window* window;
 
 	ControllerManager* controllerManager;
-	/*Map* map;	*/
+		
+	Map* map;
 
 	// State of the app
 	bool isRunning = false;

@@ -79,7 +79,7 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 
 	/*controller = new Controller();*/
 
-	/*map = new Map();*/
+	map = new Map();
 
 	if (isRunning)
 		Running();
@@ -156,12 +156,16 @@ void Aplication::Update()
 
 void Aplication::Draw()
 {
+	//Redraw Map
+	map->DrawMap();
 
 	//Draw on screen
 	SDL_RenderPresent(renderer);
 
 	//Clean window
 	SDL_RenderClear(renderer);
+
+
 }
 
 void Aplication::End()
