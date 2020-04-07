@@ -46,9 +46,9 @@ void CollisionManager::update()
 
 	//Go through all entitys with colliders and conpare with all entitys with colliders
 	for (auto& e : Colliders) for (auto& i : Colliders)
-		if (i != e && e->hasComponent<RigidBody>() && Detect(e->getComponent<Collision>().Rect, i->getComponent<Collision>().Rect))
+		if (/*i != e && e->hasComponent<RigidBody>() &&*/ Detect(e->getComponent<Collision>().Rect, i->getComponent<Collision>().Rect))
 		{			
-			e->getComponent<RigidBody>().RevertPos();
+			/*e->getComponent<RigidBody>().RevertPos();*/
 		
 		}
 }

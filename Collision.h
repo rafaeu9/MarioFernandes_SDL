@@ -7,6 +7,8 @@
 #include "TextureManager.h"
 #include "CollisionManager.h"
 
+class Position;
+
 class Collision :
 	public Component
 {

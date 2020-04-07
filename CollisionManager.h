@@ -2,8 +2,11 @@
 26/03/2020 - Start colision manager
 */
 #pragma once
-#include "Game.h"
+#include <iostream>
 #include <vector>
+#include "Components.h"
+#include "SDL.h"
+
 
 using namespace std;
 
