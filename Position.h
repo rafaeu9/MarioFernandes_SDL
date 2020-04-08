@@ -8,5 +8,6 @@ public:
 	int x, y;
 
 	Position();
+	Position(int inp_x, int inp_y);
 };
 

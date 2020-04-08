@@ -5,6 +5,8 @@ SDL_Renderer* Aplication::renderer = nullptr;
 
 CollisionManager* Aplication::collisionManger = nullptr;
 
+
+
 Aplication::Aplication()
 {
 }
@@ -84,10 +86,19 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 
 	map = new Map();
 
+	CreateEnteties();
+
 	if (isRunning)
 		Running();
 	else
 		End();
+}
+
+void Aplication::CreateEnteties()
+{
+	Entity& Player(manager.addEntity());
+	Player.addComponent<Position>(3,3);
+	Player.addComponent<Sprite>("assets/Bird.bmp");
 }
 
 void Aplication::Running()
@@ -146,11 +157,13 @@ void Aplication::Running()
 	End();
 }
 
+
 void Aplication::Update()
 {	
 
 	controllerManager->Update();
 
+	manager.update();
 
 	if (controllerManager->controllers[0]->GetButton(Input::X))
 		isRunning = false;
@@ -161,6 +174,8 @@ void Aplication::Draw()
 {
 	//Redraw Map
 	map->DrawMap();
+
+	manager.draw();
 
 	//Draw on screen
 	SDL_RenderPresent(renderer);

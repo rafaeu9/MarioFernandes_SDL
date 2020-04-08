@@ -2,6 +2,7 @@
 19/03/2020 - Structure of the class, window and FPS
 26/03/2020 - Add Map Class
 26/03/2020 - Start Colision and colision manager
+04/03/2020 - Add Player entity
 */
 
 #pragma once
@@ -49,14 +50,20 @@ private:
 	SDL_Window* window;
 
 	ControllerManager* controllerManager;
+
+	Manager manager;
 		
 	Map* map;
+
+	/*Entity& Player;*/
 
 	// State of the app
 	bool isRunning = false;
 
 	//Run aplication
 	void Running();
+
+	void CreateEnteties();
 
 	void Update();
 	void Draw();
