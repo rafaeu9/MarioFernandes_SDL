@@ -99,6 +99,7 @@ void Aplication::CreateEnteties()
 	Entity& Player(manager.addEntity());
 	Player.addComponent<Position>(3,3);
 	Player.addComponent<Sprite>("assets/Bird.bmp");
+	Player.addComponent<Movement>(controllerManager->controllers[0]).Speed = 1;
 }
 
 void Aplication::Running()

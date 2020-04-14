@@ -24,9 +24,6 @@
     <ClCompile Include="Aplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ControllerManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,12 +45,15 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aplication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ControllerManager.h">
@@ -83,5 +83,16 @@
     <ClInclude Include="Sprite.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Bird.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

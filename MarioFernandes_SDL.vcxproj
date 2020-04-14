@@ -157,6 +157,7 @@
     <ClCompile Include="ControllerManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -170,9 +171,13 @@
     <ClInclude Include="ControllerManager.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Movement.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Bird.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
