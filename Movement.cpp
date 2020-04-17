@@ -1,14 +1,18 @@
 #include "Movement.h"
 
-Movement::Movement(Controller* controller_ID)
+Movement::Movement(Map* Inp_map, Controller* controller_ID)
 {
 	controller = controller_ID;
+	map = Inp_map;
+	
 }
 
 void Movement::update()
 {
 	if (controller)
 	{
+		LastPos = entity->getComponent<Position>();
+
 		if (controller->GetButton(UP_ARROW))
 			Up();
 		else if(controller->GetButton(DOWN_ARROW))
@@ -18,6 +22,14 @@ void Movement::update()
 			Right();
 		else if (controller->GetButton(LEFT_ARROW))
 			Left();
+		
+		if (map->DetectColision(entity->getComponent<Position>(), entity->getComponent<Sprite>().destRect))
+		{
+
+
+			entity->getComponent<Position>() = LastPos;
+		}
+
 	}
 }
 

@@ -97,9 +97,9 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 void Aplication::CreateEnteties()
 {
 	Entity& Player(manager.addEntity());
-	Player.addComponent<Position>(3,3);
+	Player.addComponent<Position>(50,50);
 	Player.addComponent<Sprite>("assets/Bird.bmp");
-	Player.addComponent<Movement>(controllerManager->controllers[0]).Speed = 1;
+	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 1;
 }
 
 void Aplication::Running()

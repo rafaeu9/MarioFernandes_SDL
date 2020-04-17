@@ -27,6 +27,7 @@ void Sprite::init()
 	//sprte position n screen
 	srcRect.x = srcRect.y = 0;	
 	destRect.x = destRect.y = 0;
+	destRect.h = destRect.w = 64;
 
 }
 

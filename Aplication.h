@@ -12,9 +12,10 @@
 #include <vector>
 
 #include "SDL.h"
+#include "Components.h"
 #include "Map.h"
 #include "ControllerManager.h"
-#include "Components.h"
+
 
 using namespace std;
 

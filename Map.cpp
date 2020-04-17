@@ -44,8 +44,8 @@ Map::Map()
 	//Define size of the tile
 	src.x = src.y = 0;
 	dest.x = dest.y = 0;
-	src.w = dest.w = 32;
-	src.h = dest.h = 32;
+	src.w = dest.w = TileSize;
+	src.h = dest.h = TileSize;
 
 
 	////Define Map colision
@@ -105,8 +105,8 @@ void Map::DrawMap()
 		{
 			type = Tile (map[row][column]);
 
-			dest.x = column * 32;
-			dest.y = row * 32;
+			dest.x = column * TileSize;
+			dest.y = row * TileSize;
 
 			switch (type)
 			{
@@ -145,4 +145,18 @@ void Map::update()
 	//	if (!CollisionManager::Detect(i->getComponent<Collision>().Rect, MapLimits))
 	//		i->getComponent<RigidBody>().RevertPos();
 	//}
+}
+
+bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
+{
+	int x = inp_pos.x / TileSize;
+	int y = inp_pos.y / TileSize;
+	int w = (inp_pos.x + inp_size.w) / TileSize;
+	int h = (inp_pos.y + inp_size.h) / TileSize;
+
+	if (lvl1[y][x] == 2 || lvl1[y][w] == 2 || lvl1[h][w] == 2 || lvl1[h][x] == 2)
+		return true;
+	else
+		return false;
+
 }
