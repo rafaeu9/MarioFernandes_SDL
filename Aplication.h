@@ -15,6 +15,7 @@
 #include "Components.h"
 #include "Map.h"
 #include "ControllerManager.h"
+#include "FileIO.h"
 
 
 using namespace std;
