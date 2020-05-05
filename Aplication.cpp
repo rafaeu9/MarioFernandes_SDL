@@ -79,7 +79,7 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 	}
 #pragma endregion Create Window
 
-	FileIO::ReadLevel();
+	/*FileIO::ReadLevel();*/
 
 	controllerManager = new ControllerManager();
 	collisionManger = new CollisionManager();

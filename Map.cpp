@@ -4,7 +4,7 @@
 
 
 // Map structure
-int lvl1[20][25] = {
+int lvl[20][25] = {
 
 	{ 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -39,7 +39,7 @@ Map::Map()
 	water = TextureManager::LoadBMPTexture("assets/water.bmp");
 
 	//Load map Structure
-	LoadMap(lvl1);
+	LoadMap("Level2");
 
 	//Define size of the tile
 	src.x = src.y = 0;
@@ -82,15 +82,62 @@ Map::Map()
 }
 
 //Load Map
-void Map::LoadMap(int arr[20][25])
+void Map::LoadMap(const char* level)
 {
-	for (int row = 0; row < 20; row++)
-	{
-		for (int column = 0; column < 25; column ++)
+	
+	
+	FILE* fp = fopen("data/Levels.txt", "r");
+
+
+
+	if (!fp) {
+		std::perror("data/Levels.txt failed to open\n");
+	}
+	else {
+		printf("data/Levels.txt successfully open\n");
+	}
+
+
+	while (true) {
+
+		char type[256];
+
+		if (fp)
+			 fscanf(fp, "%s", &type);
+		else
+			printf("data/Levels.txt problem\n");
+
+		if (strstr(level, type) != 0)
 		{
-			map[row][column] = arr[row][column];
+
+			fscanf_s(fp, "%c");
+
+			printf("Level 1 Loading\n");
+
+			for (int row = 0; row < 20; row++)
+			{
+				for (int column = 0; column < 25; column++)
+				{
+					char a;
+					
+					fscanf_s(fp, "%c",&a);
+					if(a-'0' == 0 || a - '0' == 1 || a - '0' == 2)
+					{
+					printf("%c",a);
+					map[row][column] = a-'0';
+					}
+				}
+				fscanf_s(fp, "%c");
+				printf("\n");
+			}
+
+			fclose(fp);
+
+			break;
 		}
 	}
+
+	
 
 
 }
@@ -154,7 +201,7 @@ bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
 	int w = (inp_pos.x + inp_size.w) / TileSize;
 	int h = (inp_pos.y + inp_size.h) / TileSize;
 
-	if (lvl1[y][x] == 2 || lvl1[y][w] == 2 || lvl1[h][w] == 2 || lvl1[h][x] == 2)
+	if (map[y][x] == 2 || map[y][w] == 2 || map[h][w] == 2 || map[h][x] == 2)
 		return true;
 	else
 		return false;
