@@ -22,17 +22,23 @@ public:
 	Map();
 	~Map();
 
+	static Map* MainMap;
+
 	void LoadMap(const char* level);
+
 	void DrawMap();
 
 	void update();
 
 	std::vector<SDL_Rect> way;
 
+	bool DetectColisionPos(int inp_x1, int inp_y1, int inp_x2, int inp_y2);
+
 	bool DetectColision(Position inp_pos, SDL_Rect inp_size);
 
 
 protected:
+
 
 	SDL_Rect src;
 	SDL_Rect dest;

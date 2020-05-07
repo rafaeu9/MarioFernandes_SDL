@@ -13,10 +13,10 @@ void Movement::update()
 	{
 		LastPos = entity->getComponent<Position>();
 
-		if (controller->GetButton(UP_ARROW))
-			Up();
-		else if(controller->GetButton(DOWN_ARROW))
-			Down();
+		//if (controller->GetButton(UP_ARROW))
+		//	Up();
+		//else if(controller->GetButton(DOWN_ARROW))
+		//	Down();
 
 		if (controller->GetButton(RIGHT_ARROW))
 			Right();
@@ -25,8 +25,6 @@ void Movement::update()
 		
 		if (map->DetectColision(entity->getComponent<Position>(), entity->getComponent<Sprite>().destRect))
 		{
-
-
 			entity->getComponent<Position>() = LastPos;
 		}
 

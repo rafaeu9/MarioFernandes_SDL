@@ -88,7 +88,11 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 
 	map = new Map();
 
-	CreateEnteties();
+	if (controllerManager && collisionManger && map && isRunning)
+		isRunning = true;
+	else
+		isRunning = false;
+		
 
 	if (isRunning)
 		Running();
@@ -99,13 +103,28 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 void Aplication::CreateEnteties()
 {
 	Entity& Player(manager.addEntity());
-	Player.addComponent<Position>(50,50);
-	Player.addComponent<Sprite>("assets/Bird.bmp");
-	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 1;
+	Player.addComponent<Position>(336,512);
+	Player.addComponent<Sprite>("assets/dirt.bmp");
+	Player.getComponent<Sprite>().destRect.w = 128;
+	Player.getComponent<Sprite>().destRect.h = 32;
+	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 5;
+
+	Entity& BouncingBall(manager.addEntity());	
+	BouncingBall.addComponent<Position>(336, 512);
+	BouncingBall.addComponent<Sprite>("assets/dirt.bmp");
+	BouncingBall.getComponent<Sprite>().destRect.w = 64;
+	BouncingBall.getComponent<Sprite>().destRect.h = 64;
+	BouncingBall.addComponent<Ball>();
 }
+
 
 void Aplication::Running()
 {
+	map->LoadMap("Level1");
+
+	CreateEnteties();
+
+
 	//Target Frame rate
 	const int FPS = 60;
 	//Max time between frames
@@ -171,6 +190,17 @@ void Aplication::Update()
 	if (controllerManager->controllers[0]->GetButton(Input::X))
 		isRunning = false;
 
+	SDL_PollEvent(controllerManager->ev);
+	switch (controllerManager->ev->type)
+	{
+		//detect if the X of the window was pressed
+	case SDL_QUIT:
+		isRunning = false;
+		break;
+	default:
+		break;
+	}
+
 }
 
 void Aplication::Draw()
@@ -182,7 +212,7 @@ void Aplication::Draw()
 
 	//Draw on screen
 	SDL_RenderPresent(renderer);
-
+	SDL_SetRenderDrawColor(Aplication::renderer, 124, 252, 0, SDL_ALPHA_OPAQUE);
 	//Clean window
 	SDL_RenderClear(renderer);
 

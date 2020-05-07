@@ -14,8 +14,7 @@ class ControllerManager
 {
 private:
 
-	//Events
-	SDL_Event* ev = new SDL_Event();
+	
 
 	SDL_Joystick* joy;
 
@@ -28,6 +27,9 @@ public:
 	~ControllerManager();
 
 	void Update();
+
+	//Events
+	SDL_Event* ev = new SDL_Event();
 
 	//List of controllers
 	std::vector<Controller*> controllers;
