@@ -1,5 +1,6 @@
 /*Change Log
 7/05/2020 - Ball creation, movemnt and start of collision detection
+8/05/2020 - Collision detection in any point and bouncing
 */
 
 

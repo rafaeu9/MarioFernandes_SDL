@@ -1,3 +1,17 @@
 ﻿  Ball.cpp
+  Map.cpp
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(59,17): warning C4473: 'fscanf_s' : not enough arguments passed for format string
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(59,17): message : placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(59,17): message : the missing variadic argument 1 is required by format string '%c'
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(59,17): message : this argument is used by a conversion specifier
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(69,19): warning C4473: 'fscanf_s' : not enough arguments passed for format string
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(69,19): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(69,19): message : the missing variadic argument 2 is required by format string '%c'
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(69,19): message : this argument is used as a buffer size
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(76,18): warning C4473: 'fscanf_s' : not enough arguments passed for format string
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(76,18): message : placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(76,18): message : the missing variadic argument 1 is required by format string '%c'
+C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Map.cpp(76,18): message : this argument is used by a conversion specifier
+  Generating Code...
   MarioFernandes_SDL.vcxproj -> C:\Users\rafae\Documents\repos\MarioFernandes_SDL\Debug\MarioFernandes_SDL.exe
           1 file(s) copied.

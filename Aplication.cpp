@@ -120,7 +120,7 @@ void Aplication::CreateEnteties()
 
 void Aplication::Running()
 {
-	map->LoadMap("Level1");
+	map->LoadMap("Level2");
 
 	CreateEnteties();
 

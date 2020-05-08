@@ -133,7 +133,22 @@ bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
 
 	if (map[y][x] == 1 || map[y][w] == 1 || map[h][w] == 1 || map[h][x] == 1)
 		return true;
-	else
+	
+	for (int i = x; i < w; i++)
+	{
+		if (map[y][i] == 1)
+			return true;
+		else if (map[h][i] == 1)
+			return true;
+	}
+
+	for (int i = y; i < h; i++)
+	{
+		if (map[i][x] == 1)
+			return true;
+		else if (map[i][w] == 1)
+			return true;
+	}
 		return false;
 
 }
@@ -151,11 +166,10 @@ bool Map::DetectColisionPos(int inp_x1, int inp_y1 , int inp_x2, int inp_y2)
 	{
 		for (int o = inp_y1; o <= inp_y2; o++)
 		{
-			map[i][o] = 0;
-			printf("Check\n");
-			if (map[i][o] == 1)
+			
+			/*printf("Check\n");*/
+			if (map[o][i] == 1)
 			{
-				printf("True\n");
 				return true;
 			}
 		}
