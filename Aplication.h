@@ -42,7 +42,6 @@ public:
 
 
 	static SDL_Renderer* renderer;
-	static CollisionManager* collisionManger;
 	/*static Controller* controller;*/
 	
 

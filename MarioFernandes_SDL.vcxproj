@@ -152,8 +152,6 @@
   <ItemGroup>
     <ClCompile Include="Aplication.cpp" />
     <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ControllerManager.cpp" />
     <ClCompile Include="FileIO.cpp" />
@@ -167,8 +165,6 @@
   <ItemGroup>
     <ClInclude Include="Aplication.h" />
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControllerManager.h" />

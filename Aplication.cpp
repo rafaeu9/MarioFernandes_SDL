@@ -3,10 +3,6 @@
 SDL_Renderer* Aplication::renderer = nullptr;
 //Controller* Aplication::controller = nullptr;
 
-CollisionManager* Aplication::collisionManger = nullptr;
-
-
-
 Aplication::Aplication()
 {
 }
@@ -82,13 +78,12 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 	/*FileIO::ReadLevel();*/
 
 	controllerManager = new ControllerManager();
-	collisionManger = new CollisionManager();
 
 	/*controller = new Controller();*/
 
 	map = new Map();
 
-	if (controllerManager && collisionManger && map && isRunning)
+	if (controllerManager && map && isRunning)
 		isRunning = true;
 	else
 		isRunning = false;
@@ -110,11 +105,11 @@ void Aplication::CreateEnteties()
 	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 5;
 
 	Entity& BouncingBall(manager.addEntity());	
-	BouncingBall.addComponent<Position>(336, 512);
+	BouncingBall.addComponent<Position>(336, 412);
 	BouncingBall.addComponent<Sprite>("assets/dirt.bmp");
 	BouncingBall.getComponent<Sprite>().destRect.w = 64;
 	BouncingBall.getComponent<Sprite>().destRect.h = 64;
-	BouncingBall.addComponent<Ball>();
+	BouncingBall.addComponent<Ball>(Player.getComponent<Position>().entity);
 }
 
 
