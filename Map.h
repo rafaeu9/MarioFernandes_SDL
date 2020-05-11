@@ -36,6 +36,8 @@ public:
 
 	bool DetectColision(Position inp_pos, SDL_Rect inp_size);
 
+	void DetectBlock(int inp_x, int inp_y);
+
 
 protected:
 

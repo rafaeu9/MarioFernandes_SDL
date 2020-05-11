@@ -54,13 +54,18 @@ void Ball::Bounce()
 		entity->getComponent<Position>().x + entity->getComponent<Sprite>().destRect.w + 2, entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h))
 		{			
 			XSpeed *= -1;
-		}		
+		}
+		else
+		{
+			XSpeed *= -1;
+			YSpeed *= -1;
+		}
 	}	
 }
 
 void Ball::PlayerDetection()
 {
-	if(!((entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h) > Player->getComponent<Position>().y))
+	if(!((entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h) > Player->getComponent<Position>().y) && YSpeed >0)
 	if (Player->getComponent<Position>().x + Player->getComponent<Sprite>().destRect.w >= entity->getComponent<Position>().x &&
 		entity->getComponent<Position>().x + entity->getComponent<Sprite>().destRect.w >= Player->getComponent<Position>().x &&
 		Player->getComponent<Position>().y + Player->getComponent<Sprite>().destRect.h >= entity->getComponent<Position>().y &&

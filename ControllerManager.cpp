@@ -48,11 +48,11 @@ ControllerManager::~ControllerManager()
 
 void ControllerManager::Update()
 {
-
-		SDL_PollEvent(ev);
+	while (SDL_PollEvent(ev) != NULL)
+	{		
 
 		if (ev->type == SDL_CONTROLLERBUTTONDOWN)
-		{			
+		{
 			int ID = ev->cbutton.which;
 			/*SDL_GameControllerGetButton(gamecontroller, button);*/
 
@@ -121,4 +121,5 @@ void ControllerManager::Update()
 				break;
 			}
 		}
+	}
 }

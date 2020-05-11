@@ -131,7 +131,8 @@ bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
 	int w = (inp_pos.x + inp_size.w) / TileSize;
 	int h = (inp_pos.y + inp_size.h) / TileSize;
 
-	if (map[y][x] == 1 || map[y][w] == 1 || map[h][w] == 1 || map[h][x] == 1)
+	if (map[y][x] == 1 || map[y][w] == 1 || map[h][w] == 1 || map[h][x] == 1 || 
+		map[y][x] == 2 || map[y][w] == 2 || map[h][w] == 2 || map[h][x] == 2)
 		return true;
 	
 	for (int i = x; i < w; i++)
@@ -153,6 +154,13 @@ bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
 
 }
 
+void Map::DetectBlock(int inp_x, int inp_y)
+{
+	map[inp_y][inp_x] = 0;
+
+
+}
+
 bool Map::DetectColisionPos(int inp_x1, int inp_y1 , int inp_x2, int inp_y2)
 {
 	inp_x1 /= TileSize;
@@ -170,6 +178,12 @@ bool Map::DetectColisionPos(int inp_x1, int inp_y1 , int inp_x2, int inp_y2)
 			/*printf("Check\n");*/
 			if (map[o][i] == 1)
 			{
+				return true;
+			}
+			else if (map[o][i] == 2)
+			{
+				DetectBlock(i,o);
+
 				return true;
 			}
 		}
