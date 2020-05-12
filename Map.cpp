@@ -69,6 +69,9 @@ void Map::LoadMap(const char* level)
 					fscanf_s(fp, "%c",&a);
 					if(a-'0' == 0 || a - '0' == 1 || a - '0' == 2)
 					{
+						if (a - '0' == 2)
+							numbBlocks++;
+
 						std::printf("%c",a);
 					map[row][column] = a-'0';
 					}
@@ -155,14 +158,26 @@ bool Map::DetectColision(Position inp_pos, SDL_Rect inp_size)
 }
 
 void Map::DetectBlock(int inp_x, int inp_y)
-{
+{	
 	map[inp_y][inp_x] = 0;
 
+	numbBlocks--;
 
+	if(numbBlocks <=0)
+	Aplication::isRunning = false;
+
+}
+
+void Map::DetectPos(int inp_x, int inp_y)
+{
+	if (map[inp_y][inp_x] == 2)
+		DetectBlock(inp_x, inp_y);
 }
 
 bool Map::DetectColisionPos(int inp_x1, int inp_y1 , int inp_x2, int inp_y2)
 {
+	bool check = false;
+
 	inp_x1 /= TileSize;
 	inp_y1 /= TileSize;
 
@@ -184,12 +199,12 @@ bool Map::DetectColisionPos(int inp_x1, int inp_y1 , int inp_x2, int inp_y2)
 			{
 				DetectBlock(i,o);
 
-				return true;
+				check = true;
 			}
 		}
 	}
 		
 	
-		return false;
+		return check;
 
 }

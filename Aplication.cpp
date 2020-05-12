@@ -3,12 +3,15 @@
 SDL_Renderer* Aplication::renderer = nullptr;
 //Controller* Aplication::controller = nullptr;
 
+bool Aplication::isRunning = false;
+
 Aplication::Aplication()
 {
 }
 
 void Aplication::Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
+
 #pragma region Create Window
 
 	window = nullptr;
@@ -107,8 +110,8 @@ void Aplication::CreateEnteties()
 	Entity& BouncingBall(manager.addEntity());	
 	BouncingBall.addComponent<Position>(336, 412);
 	BouncingBall.addComponent<Sprite>("assets/dirt.bmp");
-	BouncingBall.getComponent<Sprite>().destRect.w = 64;
-	BouncingBall.getComponent<Sprite>().destRect.h = 64;
+	BouncingBall.getComponent<Sprite>().destRect.w = 32;
+	BouncingBall.getComponent<Sprite>().destRect.h = 32;
 	BouncingBall.addComponent<Ball>(Player.getComponent<Position>().entity);
 }
 

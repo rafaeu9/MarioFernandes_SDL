@@ -38,6 +38,8 @@ public:
 
 	void DetectBlock(int inp_x, int inp_y);
 
+	void DetectPos(int inp_x, int inp_y);
+
 
 protected:
 
@@ -53,6 +55,8 @@ protected:
 	int TileSize = 32;
 
 	int map[20][25];
+
+	int numbBlocks = 0;
 
 	enum Tile
 	{

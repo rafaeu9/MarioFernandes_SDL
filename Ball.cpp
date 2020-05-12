@@ -4,9 +4,10 @@ Ball::Ball(Entity* Inp_Player)
 {
 
 	Player = Inp_Player;
-
-	XSpeed = 1;
-	YSpeed = 1;
+	do {
+		XSpeed = (int)(rand() % 2 + (-1));
+	} while (XSpeed == 0);
+	YSpeed = -1;
 }
 
 Ball::~Ball()
@@ -17,9 +18,7 @@ void Ball::update()
 {
 	Bounce();
 	PlayerDetection();
-	Move();
-
-	
+	Move();	
 }
 
 void Ball::Move()
@@ -59,6 +58,11 @@ void Ball::Bounce()
 		{
 			XSpeed *= -1;
 			YSpeed *= -1;
+
+			Map::MainMap->DetectPos(entity->getComponent<Position>().x - 2, entity->getComponent<Position>().y - 2);
+			Map::MainMap->DetectPos(entity->getComponent<Position>().x - 2, entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h + 2);
+			Map::MainMap->DetectPos(entity->getComponent<Position>().x + entity->getComponent<Sprite>().destRect.w + 2, entity->getComponent<Position>().y - 2);
+			Map::MainMap->DetectPos(entity->getComponent<Position>().x + entity->getComponent<Sprite>().destRect.w + 2, entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h + 2);
 		}
 	}	
 }

@@ -44,6 +44,7 @@ public:
 	static SDL_Renderer* renderer;
 	/*static Controller* controller;*/
 	
+	static bool isRunning;
 
 private:
 
@@ -58,7 +59,7 @@ private:
 	/*Entity& Player;*/
 
 	// State of the app
-	bool isRunning = false;
+	
 
 	//Run aplication
 	void Running();
