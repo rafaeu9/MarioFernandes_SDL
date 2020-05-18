@@ -14,8 +14,6 @@ class ControllerManager
 {
 private:
 
-	
-
 	SDL_Joystick* joy;
 
 	//Total number of controllers 
@@ -27,6 +25,8 @@ public:
 	~ControllerManager();
 
 	void Update();
+
+	static ControllerManager* controllermnager;
 
 	//Events
 	SDL_Event* ev = new SDL_Event();

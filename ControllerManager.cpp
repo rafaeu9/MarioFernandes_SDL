@@ -1,7 +1,12 @@
 #include "ControllerManager.h"
 
+ControllerManager* ControllerManager::controllermnager = nullptr;
+
 ControllerManager::ControllerManager()
 {
+
+	controllermnager = this;
+
 	// Initialize the joystick subsystem
 	if (SDL_InitSubSystem(SDL_INIT_JOYSTICK) == 0)
 	{

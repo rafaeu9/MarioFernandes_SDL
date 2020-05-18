@@ -7,9 +7,9 @@ Map::Map()
 	MainMap = this;
 
 	//Difrent tips of tiles
-	dirt = TextureManager::LoadBMPTexture("assets/dirt.bmp");
-	grass = TextureManager::LoadBMPTexture("assets/grass.bmp");
-	water = TextureManager::LoadBMPTexture("assets/water.bmp");
+	Brick = TextureManager::LoadBMPTexture("assets/Brick.bmp");
+	Wall = TextureManager::LoadBMPTexture("assets/Wall.bmp");
+	Space = TextureManager::LoadBMPTexture("assets/Space.bmp");
 
 	//Load map Structure
 	/*LoadMap("Level1");*/
@@ -107,13 +107,13 @@ void Map::DrawMap()
 			switch (type)
 			{
 			case waterT:
-				TextureManager::Draw(water, dest);				
+				TextureManager::Draw(Space, dest);				
 				break;				
 			case grassT:
-				TextureManager::Draw(grass, dest);				
+				TextureManager::Draw(Wall, dest);				
 				break;
 			case dirtT:
-				TextureManager::Draw(dirt, dest);				
+				TextureManager::Draw(Brick, dest);				
 				break;
 			default:
 				break;

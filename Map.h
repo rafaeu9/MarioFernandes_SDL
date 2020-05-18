@@ -48,9 +48,9 @@ protected:
 	SDL_Rect dest;
 	SDL_Rect MapLimits;
 
-	SDL_Texture* dirt;
-	SDL_Texture* grass;
-	SDL_Texture* water;
+	SDL_Texture* Brick;
+	SDL_Texture* Wall;
+	SDL_Texture* Space;
 
 	int TileSize = 32;
 

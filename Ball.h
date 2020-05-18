@@ -2,6 +2,7 @@
 7/05/2020 - Ball creation, movemnt and start of collision detection
 8/05/2020 - Collision detection in any point and bouncing
 8/05/2020 - Player detection in any point and bouncing
+18/05/2020 - Ball ground detection
 */
 
 

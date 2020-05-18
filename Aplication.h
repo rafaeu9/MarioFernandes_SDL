@@ -10,6 +10,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <vector>
+#include <String>
 
 #include "SDL.h"
 #include "Components.h"

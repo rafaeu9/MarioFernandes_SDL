@@ -4,10 +4,9 @@ Ball::Ball(Entity* Inp_Player)
 {
 
 	Player = Inp_Player;
-	do {
-		XSpeed = (int)(rand() % 2 + (-1));
-	} while (XSpeed == 0);
-	YSpeed = -1;
+
+	XSpeed = 0;
+	YSpeed = 0;	
 }
 
 Ball::~Ball()
@@ -16,9 +15,28 @@ Ball::~Ball()
 
 void Ball::update()
 {
-	Bounce();
-	PlayerDetection();
-	Move();	
+
+	if (YSpeed == 0)
+	{
+		entity->getComponent<Position>().y = 480;
+		entity->getComponent<Position>().x = Player->getComponent<Position>().x + Player->getComponent<Sprite>().destRect.w /2 - 16;
+		if (ControllerManager::controllermnager->controllers[0]->m_ButtonPressed[A])
+		{
+			YSpeed = -1;
+
+			if ((int)(rand() % 100 + 1) <= 50)
+				XSpeed = -1;
+			else
+				XSpeed = 1;
+		}
+	}
+	else
+	{
+		Bounce();
+		PlayerDetection();
+		Move();
+	}
+
 }
 
 void Ball::Move()
@@ -43,6 +61,9 @@ void Ball::Bounce()
 		entity->getComponent<Position>().x + entity->getComponent<Sprite>().destRect.w, entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h + 2))
 		{			
 			YSpeed *= -1;
+
+			if((entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h) > Player->getComponent<Position>().y)
+			Aplication::isRunning = false;
 		}
 		else if(Map::MainMap->DetectColisionPos(entity->getComponent<Position>().x - 2, entity->getComponent<Position>().y,
 		entity->getComponent<Position>().x - 2, entity->getComponent<Position>().y + entity->getComponent<Sprite>().destRect.h))

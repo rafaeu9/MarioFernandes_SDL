@@ -102,14 +102,14 @@ void Aplication::CreateEnteties()
 {
 	Entity& Player(manager.addEntity());
 	Player.addComponent<Position>(336,512);
-	Player.addComponent<Sprite>("assets/dirt.bmp");
+	Player.addComponent<Sprite>("assets/Platform.bmp");
 	Player.getComponent<Sprite>().destRect.w = 128;
 	Player.getComponent<Sprite>().destRect.h = 32;
 	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 5;
 
 	Entity& BouncingBall(manager.addEntity());	
-	BouncingBall.addComponent<Position>(336, 412);
-	BouncingBall.addComponent<Sprite>("assets/dirt.bmp");
+	BouncingBall.addComponent<Position>();
+	BouncingBall.addComponent<Sprite>("assets/ball.bmp");
 	BouncingBall.getComponent<Sprite>().destRect.w = 32;
 	BouncingBall.getComponent<Sprite>().destRect.h = 32;
 	BouncingBall.addComponent<Ball>(Player.getComponent<Position>().entity);
