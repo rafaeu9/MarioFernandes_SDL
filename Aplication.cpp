@@ -78,11 +78,7 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 	}
 #pragma endregion Create Window
 
-	/*FileIO::ReadLevel();*/
-
 	controllerManager = new ControllerManager();
-
-	/*controller = new Controller();*/
 
 	map = new Map();
 
@@ -98,8 +94,11 @@ void Aplication::Init(const char* title, int xpos, int ypos, int width, int heig
 		End();
 }
 
+
 void Aplication::CreateEnteties()
 {
+
+	//Creating the player
 	Entity& Player(manager.addEntity());
 	Player.addComponent<Position>(336,512);
 	Player.addComponent<Sprite>("assets/Platform.bmp");
@@ -107,6 +106,7 @@ void Aplication::CreateEnteties()
 	Player.getComponent<Sprite>().destRect.h = 32;
 	Player.addComponent<Movement>(map, controllerManager->controllers[0]).Speed = 5;
 
+	//Creating the Ball
 	Entity& BouncingBall(manager.addEntity());	
 	BouncingBall.addComponent<Position>();
 	BouncingBall.addComponent<Sprite>("assets/ball.bmp");
@@ -210,7 +210,7 @@ void Aplication::Draw()
 
 	//Draw on screen
 	SDL_RenderPresent(renderer);
-	SDL_SetRenderDrawColor(Aplication::renderer, 124, 252, 0, SDL_ALPHA_OPAQUE);
+
 	//Clean window
 	SDL_RenderClear(renderer);
 

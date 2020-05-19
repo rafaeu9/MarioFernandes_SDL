@@ -25,9 +25,9 @@ void Ball::update()
 			YSpeed = -1;
 
 			if ((int)(rand() % 100 + 1) <= 50)
-				XSpeed = -1;
+				XSpeed = -2;
 			else
-				XSpeed = 1;
+				XSpeed = 2;
 		}
 	}
 	else

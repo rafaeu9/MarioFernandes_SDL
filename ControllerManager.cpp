@@ -8,10 +8,19 @@ ControllerManager::ControllerManager()
 	controllermnager = this;
 
 	// Initialize the joystick subsystem
-	if (SDL_InitSubSystem(SDL_INIT_JOYSTICK) == 0)
-	{
+	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+	if(joyTotal == 0)
+	do
+	{		
+		/*SDL_Delay(1000);*/
 
+		SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 		joyTotal = SDL_NumJoysticks();
+		if (joyTotal == 0)
+				std::printf("Couldn't detect a controller\n");
+
+	} while (joyTotal == 0);
+		
 
 		// Check for joystick
 		if (joyTotal > 0) {
@@ -24,20 +33,23 @@ ControllerManager::ControllerManager()
 
 				//Information of the controllers
 				if (tempJoy->joy) {
-					printf("Opened Joystick %d\n", i);
-					printf("Name: %s\n", SDL_JoystickNameForIndex(i));
-					printf("Number of Axes: %d\n", SDL_JoystickNumAxes(tempJoy->joy));
-					printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(tempJoy->joy));
-					printf("Number of Balls: %d\n", SDL_JoystickNumBalls(tempJoy->joy));
+					std::printf("Opened Joystick %d\n", i);
+					std::printf("Name: %s\n", SDL_JoystickNameForIndex(i));
+					std::printf("Number of Axes: %d\n", SDL_JoystickNumAxes(tempJoy->joy));
+					std::printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(tempJoy->joy));
+					std::printf("Number of Balls: %d\n", SDL_JoystickNumBalls(tempJoy->joy));
 
 					controllers.push_back(tempJoy);
 				}
 				else {
-					printf("Couldn't open Joystick %d\n", i);
+					std::printf("Couldn't open Joystick %d\n", i);
 				}
 			}
+		
 		}
-	}
+
+		
+	
 }
 
 ControllerManager::~ControllerManager()
@@ -52,7 +64,9 @@ ControllerManager::~ControllerManager()
 }
 
 void ControllerManager::Update()
-{
+{	
+
+
 	while (SDL_PollEvent(ev) != NULL)
 	{		
 

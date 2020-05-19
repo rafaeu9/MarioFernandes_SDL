@@ -41,9 +41,7 @@ public:
 	*/
 	void Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 
-
 	static SDL_Renderer* renderer;
-	/*static Controller* controller;*/
 	
 	static bool isRunning;
 
@@ -56,21 +54,20 @@ private:
 	Manager manager;
 		
 	Map* map;
-
-	/*Entity& Player;*/
-
-	// State of the app
 	
-
 	//Run aplication
 	void Running();
 
+	//Create the enteties of the game
 	void CreateEnteties();
 
-
+	//Update the game
 	void Update();
+
+	//Draw the game
 	void Draw();
 
+	//Close the game
 	void End();
 };
 
